@@ -28,22 +28,33 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ListView
-        android:layout_width="409dp"
-        android:layout_height="551dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="179dp" />
+        android:layout_width="406dp"
+        android:layout_height="418dp"
+        tools:layout_editor_absoluteX="2dp"
+        tools:layout_editor_absoluteY="309dp" />
 
     <EditText
         android:id="@+id/cityName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="@string/city_name"
-        app:layout_constraintBottom_toTopOf="@+id/temperature"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.542"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/testText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="144dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cityName" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
