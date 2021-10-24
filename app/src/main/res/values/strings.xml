@@ -3,4 +3,5 @@
     <string name="city_name">City Name</string>
     <string name="forecast">Forecast</string>
     <string name="temperature">Temperature</string>
+    <string name="list_view">List View</string>
 </resources>
