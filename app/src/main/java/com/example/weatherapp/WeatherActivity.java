@@ -83,18 +83,19 @@ public class WeatherActivity extends AppCompatActivity {
         Toast.makeText(WeatherActivity.this, "Getting the temperature for that city ", Toast.LENGTH_LONG).show();
         // for para recorrer el response y extraer los datos
         try {
-            // sacando el objeto main
+            // getting main object
             JSONObject main = response.getJSONObject("main");
-            // obteniendo el valor de temp dentro de main : "temp": 300.15 ...
+            // getting the temp value inside the main
             String temperature = main.getString("temp");
-            // cambiando el valor del EditText
+            // setting the new temperature value to display in the view.
             results.setText(temperature);
+            //enabling forecast button
             forecastButton.setEnabled(true);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
-
+    //getForecast method to start the new activity `
     @OnClick(R.id.forecast)
     void getForecast(View view){
         Intent intent = new Intent(this, MainActivity.class);

@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ForecastAdapter adapter;
     RequestQueue requestQueue;
+    //List containing the forecast
     List<Forecast> items =  new ArrayList<>();
 
     @Override
@@ -44,12 +45,13 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         Bundle bundle = getIntent().getExtras();
         if (bundle != null){
             String city = bundle.getString("city");
             getForecast(city);
         }
-
+        //Defining recyclerview
         recyclerView = (RecyclerView) findViewById(R.id.todos_recycler_view);
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
@@ -87,22 +89,27 @@ public class MainActivity extends AppCompatActivity {
         );
         requestQueue.add(jsArrayRequest);
     }
+
     public void JsonParser(JSONObject response){
         items.clear();
         try {
+
             JSONArray list = response.getJSONArray("list");
-
+            //Loop through the response list that came from the response
             for (int i = 0; i < list.length(); i++) {
+                //Getting the list object from API
                 JSONObject item = list.getJSONObject(i);
-
+                //Getting dt item from API
                 int unixDate = item.getInt("dt");
-
+                //Getting main object from API
                 JSONObject main = item.getJSONObject("main");
+                //Getting temp item from API
                 double temp = main.getDouble("temp");
-
+                //Getting weather Array from API
                 JSONArray weather = item.getJSONArray("weather");
+                //Getting description Object from API
                 String description = weather.getJSONObject(0).getString("description");
-
+                //Getting wind item from API
                 JSONObject wind = item.getJSONObject("wind");
                 double speed = wind.getDouble("speed");
 

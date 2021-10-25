@@ -7,7 +7,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
-// adapter used to fill data from the rec
+// adapter used to fill data from the recyclerview to create the ListView.
 public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.MyViewHolder> {
     public List<Forecast> items;
     public static class MyViewHolder extends RecyclerView.ViewHolder {
