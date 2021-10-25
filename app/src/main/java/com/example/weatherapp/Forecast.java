@@ -4,11 +4,11 @@ import java.util.Date;
 
 public class Forecast {
     public Date date;
-    public float temp;
+    public double temp;
     public String description;
-    public float windSpeed;
+    public double windSpeed;
 
-    public Forecast(Date date, float temp, String description, float windSpeed) {
+    public Forecast(Date date, double temp, String description, double windSpeed) {
         this.date = date;
         this.temp = temp;
         this.description = description;
