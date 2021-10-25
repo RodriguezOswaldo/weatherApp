@@ -80,15 +80,18 @@ public class WeatherActivity extends AppCompatActivity {
     }
 
     public void JsonParser(JSONObject response){
-        Toast.makeText(WeatherActivity.this, "Getting the temperature for that city ", Toast.LENGTH_LONG).show();
         // for para recorrer el response y extraer los datos
         try {
+            Toast.makeText(WeatherActivity.this, "Getting the temperature for " + cityName.getText().toString(), Toast.LENGTH_LONG).show();
+
             // getting main object
             JSONObject main = response.getJSONObject("main");
             // getting the temp value inside the main
             String temperature = main.getString("temp");
             // setting the new temperature value to display in the view.
             results.setText(temperature);
+            Toast.makeText(this,  temperature, Toast.LENGTH_SHORT).show();
+
             //enabling forecast button
             forecastButton.setEnabled(true);
         } catch (JSONException e) {
