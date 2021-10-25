@@ -34,6 +34,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ForecastAdapter adapter;
+    //Declaring queue to use instead of threads
     RequestQueue requestQueue;
     //List containing the forecast
     List<Forecast> items =  new ArrayList<>();
@@ -70,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
     public void getForecast(String city) {
         String url = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&APPID=8d7178b81fed26ae734b0d4364f47036";
         requestQueue = Volley.newRequestQueue(this);
+        //Creating object request to the API
         JsonObjectRequest jsArrayRequest = new JsonObjectRequest(
                 Request.Method.GET, url,
                 null,
@@ -87,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+        //Adding the request to queue to work in the background
         requestQueue.add(jsArrayRequest);
     }
 
